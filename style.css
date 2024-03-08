@@ -1,0 +1,205 @@
+@charset "UTF-8"; /*criando regra para não haver problema no css com acentuações*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); /*importando fonte do google fonts*/
+
+@font-face {
+    font-family: 'Android';
+    src: url('/fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+} /*usando fonte baixada que está dentro da pasta de trabalho*/
+
+:root { /*facilitando as modificações usando o ROOT, permite fazer alguma alteração, com mais facilidade, já pré-definida aqui, para utilizar, basta utilizar o var(--)*/
+    --cor0: #ebe5c5;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', sans-serif;
+    --font-android: 'Android', cursive;
+} 
+
+* {
+    margin: 0px;
+    padding: 0px;
+} /*configurações globais para remover margin e padding já pré-definidos pelo navegador*/
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+a.externo::after { /*o after serve para adicionar algo depois*/
+    content: '\00A0\1F517'; /*o 00A0 serve para dar um espaçamento entre as partes, o 1F517 é o código do emoji link, importante usar a barra invertida*/
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5)); /*criando um degradê de cima para baixo*/
+    min-height: 150px; /*altura mínima estipulada*/
+    text-align: center; /*alinhando o texto*/
+    padding-top: 40px; /*adicionando um preenchimento na parte de cima*/
+}
+
+header h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 3em; /*3 vezes o tamanho padrão*/
+    font-weight: normal; /*peso da fonte*/
+    margin-bottom: 20px; /*adicionando margem na parte de baixo*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.700); /*adicionado sombra no texto h1 (direita, baixo, espalhamento, cor*/
+}
+
+header > p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    color: white;
+    max-width: 600px; /*largura máxima estipulada*/
+    padding: 0px 10px 20px 10px; /*adicionando preenchimento com medidas diferentes (cima, direita, baixo, esquerda*/
+    margin: auto; /*centralizando o conteúdo, quando não der certo, usar (display: block) também*/
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.600);
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.200); /*adicionando sombra na caixa*/
+}
+
+nav > a {
+    color: var(--cor1);
+    padding: 10px;
+    border-radius: 5px; /*adicionando arredondamento na borda*/
+    text-decoration: none; /*tirando o sublinhado padrão do link*/
+    font-weight: bold;
+    transition-duration: 0.5s; /*duração da transição de passar o mouse em cima*/
+}
+
+nav > a:hover { /*efeito passar o mouse em cima*/
+    background-color: var(--cor3);
+    color: var(--cor5);
+}
+
+main {
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.700);
+    border-bottom-left-radius: 10px; /*arredondando borda inferior da esquerda*/
+    border-bottom-right-radius: 10px; /*arredondando borda inferior da direita*/
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--font-android);
+    font-weight: normal; /*utilizando o peso da fonte normal*/
+    font-size: 1.8em;
+}
+
+main h2 {
+    font-family: var(--font-android);
+    color: var(--cor4);
+    font-weight: normal;
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent); /*criando um degradê de uma certa cor até ficar transparente*/
+    text-indent: 8px; /*endentando o texto, muito utilizado para adicionar espaço no início do parágrafo*/
+}
+
+main p {
+    margin: 15px 0px; /*adicionando margem cima/baixo e direita/esquerda*/
+    text-align: justify; /*alinhando o parágrafo com as margens*/
+    text-indent: 30px; /*colocando o espaçamento no início do parágrafo*/
+    font-size: 1em;
+    line-height: 2em; /*altura entre as linhas do parágrafo*/
+}
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+}
+
+main a {
+    background-color: var(--cor1);
+    padding: 2px 6px;
+    text-decoration: none;
+    color: var(--cor5);
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+main img {
+    width: 100%; /*adicionando largura de 100% no conteúdo*/
+}
+
+main img.pequena {
+    max-width: 350px;
+    display: block; /*usando o display: block para que a imagem centralize*/
+    margin: auto; /*centralizando*/
+}
+
+div.video { /*utilizando artifícios para ajustar a incorporação de vídeo que já vem definida*/
+    background-color: var(--cor5);
+    margin: 0px -20px 30px -20px; /**/
+    padding: 20px;
+    padding-bottom: 58%;
+    position: relative;
+}
+/*O position relative: posiciona o elemento em relação a si mesmo. Ou seja, o ponto zero será o canto superior esquerdo, e ele começará a contar a partir dali. Todos os positions precisam de um ponto para iniciar o cálculo da coordenada para assim posicionar o elemento na tela. Ao contrário do que muitos acham, esse ponto não é o ponto central do elemento, o ponto base é o canto superior esquerdo do elemento. A partir deste canto, o browser irá calcular a coordenada que você definiu e irá posicionar o elemento no viewport.
+
+O Position Absolute: é um tanto diferente do Relative. Enquanto o elemento com Position Relative utiliza seu próprio canto para referenciar sua posição, o elemento com Position Absolute se utiliza do ponto superior esquerdo de outros elementos. Estes elementos são os parentes dele do elemento com position absolute. Mais especificamente o pai.*/
+div.video > iframe {
+    position: absolute;
+    top: 5%; /*adicionando uma porcentagem de distância entre o conteúdo e o topo*/
+    left: 5%; /*adicionando uma porcentagem de distância entre o conteúdo e a esquerda*/
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.500);
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    margin: -10px -10px 0px -10px; /*usando margem negativa para o conteúdo do h3 se alinhe com os demais*/
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside > ul {
+    list-style-type: '\2714\00A0\00A0'; /*utilizando emoji de checklist antes dos itens da lista e dando dois espaçamentos entre eles, OBS: esse emoji não é compatível com qualquer navegador*/
+    list-style-position: inside; /*colocando os ícones que aparecem antes das listas para dentro do aside*/
+    columns: 2; /*adicionando uma segunda coluna (uma ao lado da outra)*/
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
